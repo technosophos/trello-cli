@@ -1,0 +1,22 @@
+#!/bin/sh
+
+# You must set APIKEY and TOKEN in the environment
+
+cfgdir=$HOME/.trello-cli
+cfgfile=$cfgdir/config.json
+authfile=$cfgdir/authentication.json
+
+mkdir -p $HOME/.trello-cli
+
+cat > $cfgfile <<EOF
+{
+    "appKey": "$APIKEY",
+    "configPath": "/root/.trello-cli/",
+    "authCache": "authentication.json",
+    "translationCache": "translations.json"
+}
+EOF
+
+cat > $authfile << EOF
+{"token":"$TOKEN"}
+EOF
